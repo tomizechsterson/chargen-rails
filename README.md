@@ -36,8 +36,10 @@ As for Ruby itself, this is currently using version 2.7.2. Here's a few guides o
 * Make a folder for the code and run `git clone https://github.com/tomizechsterson/chargen-rails`
   * This will pull down the latest version of the code and copy it into the `chargen-rails` folder
 * Navigate into this folder with your terminal of choice
-* Run `bundle install --without production` to pull down all the dependencies and prevent any production-only
-gems from installing locally
+* Run `bundle install --without production` to pull down all the Ruby-related dependencies and prevent any
+  production-only gems from installing locally
+* Run `yarn` to install all the non-Ruby dependencies
+* Run `rails db:migrate` to run all the migrations and get your database setup
 
 At this point, you should have everything you need to fire up your IDE of choice and start tinkering. If not,
 feel free to open an issue and I'll see what I can do.
