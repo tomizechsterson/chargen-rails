@@ -22,7 +22,6 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-
 /public/assets
 .byebug_history
 
