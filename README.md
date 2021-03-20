@@ -11,7 +11,7 @@ implement the full process, since ultimately, this is a toy project that's being
   * E2E (system) tests with Capybara 
   * TDD with all of the above
 * Ruby in general
-* Possibly some front-end type work
+* Front-end type work
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ Be sure to have the latest versions of the following installed:
 * [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
   * This is the primary framework driving everything
 
-As for Ruby itself, this is currently using version 2.7.2. Here's a few guides on managing your Ruby version(s):
+As for Ruby itself, this is currently using version 2.7.2. Here's a few tools for managing your Ruby version(s):
 
 * [rbenv](https://github.com/rbenv/rbenv#installation) (my personal preference)
   * This is why there's a `.ruby-version` file in the project, other Ruby version managers should ignore this
