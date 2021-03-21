@@ -19,6 +19,9 @@ body {
 	text-align: center;
 }
 
+h1 {
+
+}
 div {
 	border: 0px solid red;
 }
@@ -37,7 +40,7 @@ p {
 
 .card-image {
 	margin: 0px;
-	border-radius: 5px;
+	border-radius: 8px;
 	width: 100%;
 }
 
@@ -45,7 +48,7 @@ p {
 	border: 0px solid black;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	background-color: #9999AA;
-	border-radius: 5px;
+	border-radius: 8px;
 	margin: 10px;
 
 }
