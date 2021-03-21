@@ -7,13 +7,13 @@
     <div class="card-body">
       <p class="card-image"><img src="https://picsum.photos/200"></p>
       <%= character.name %>
-      <p class="card-info">more information in this tag</p>
-      <%= link_to 'Show', character %>
-      <%= link_to 'Edit', edit_character_path(character) %>
-      <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
+      <%= link_to 'Show', character, :class => "button" %>
+      <%= link_to 'Edit', edit_character_path(character), :class => "button" %>
+      <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
     </div>
   <% end %>
 </div>
 <br>
 
-<%= link_to 'New Character', new_character_path %>
+<%= link_to 'New Character', new_character_path, :class => "button" %>
