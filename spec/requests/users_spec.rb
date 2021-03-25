@@ -38,6 +38,14 @@ RSpec.describe "Users" do
     end
   end
 
+  describe "GET /edit" do
+    it "renders a successful response" do
+      user = User.create! valid_attributes
+      get edit_user_url(user)
+      expect(response).to be_successful
+    end
+  end
+
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new user" do
@@ -75,6 +83,45 @@ RSpec.describe "Users" do
                                    "Email is invalid",
                                    "Password is too short (minimum is 10 characters)"
                                  )
+      end
+    end
+  end
+
+  describe "PATCH /update" do
+    context "with valid parameters" do
+      let(:new_attributes) { { name: "updated name" } }
+
+      it "updates the requested user" do
+        user = User.create! valid_attributes
+
+        patch user_url(user), params: { user: new_attributes }
+        user.reload
+
+        expect(user.name).to eq("updated name")
+      end
+
+      it "redirects to the user" do
+        user = User.create! valid_attributes
+        patch user_url(user), params: { user: new_attributes }
+
+        user.reload
+
+        expect(response).to redirect_to(user_url(user))
+      end
+    end
+
+    context "with invalid parameters" do
+      before do
+        user = User.create! valid_attributes
+        patch user_url(user), params: { user: invalid_attributes }
+      end
+
+      it "returns a 200 response (to display errors)" do
+        expect(response).to be_successful
+      end
+
+      it "includes 'Name can't be blank' in the response body" do
+        expect(response.body).to include("Name can&#39;t be blank")
       end
     end
   end
