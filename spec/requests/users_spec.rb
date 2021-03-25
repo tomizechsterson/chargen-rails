@@ -125,4 +125,22 @@ RSpec.describe "Users" do
       end
     end
   end
+
+  describe "DELETE /destroy" do
+    it "destroys the requested user" do
+      user = User.create! valid_attributes
+
+      expect {
+        delete user_url(user)
+      }.to change(User, :count).by(-1)
+    end
+
+    it "redirects to the users list" do
+      user = User.create! valid_attributes
+
+      delete user_url(user)
+
+      expect(response).to redirect_to(characters_url)
+    end
+  end
 end
