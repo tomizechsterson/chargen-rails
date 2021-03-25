@@ -8,7 +8,8 @@ RSpec.describe User do
           name: "A",
           email: "a@b.c",
           password: "0123456789",
-          password_confirmation: "0123456789"
+          password_confirmation: "0123456789",
+          username: "test"
         )
 
         expect(user.save).to be_truthy
@@ -20,10 +21,11 @@ RSpec.describe User do
         user = User.new
 
         expect(user.save).to be_falsey
-        expect(user.errors.count).to be(3)
+        expect(user.errors.count).to be(6)
         expect(user.errors.messages[:name].first).to eq("can't be blank")
         expect(user.errors.messages[:email].first).to eq("is invalid")
         expect(user.errors.messages[:password].first).to eq("can't be blank")
+        expect(user.errors.messages[:username]).to include("can't be blank", "is invalid", "has already been taken")
       end
     end
 
@@ -32,7 +34,8 @@ RSpec.describe User do
         user = User.new(
           email: "test@test.com",
           password: "testtesttest",
-          password_confirmation: "testtesttest"
+          password_confirmation: "testtesttest",
+          username: "test"
         )
 
         expect(user.save).to be_falsey
@@ -46,7 +49,8 @@ RSpec.describe User do
         user = User.new(
           name: "test",
           password: "testtesttest",
-          password_confirmation: "testtesttest"
+          password_confirmation: "testtesttest",
+          username: "test"
         )
 
         it "does not save" do
@@ -61,7 +65,8 @@ RSpec.describe User do
           name: "test",
           email: "blah",
           password: "testtesttest",
-          password_confirmation: "testtesttest"
+          password_confirmation: "testtesttest",
+          username: "test"
         )
 
         it "does not save" do
@@ -76,7 +81,8 @@ RSpec.describe User do
           name: "test",
           email: "valid@email.com",
           password: "testtesttest",
-          password_confirmation: "testtesttest"
+          password_confirmation: "testtesttest",
+          username: "test"
         )
         some_user.save
 
@@ -85,7 +91,8 @@ RSpec.describe User do
             name: "someone else",
             email: "VALID@EMAIL.COM",
             password: "newpassword",
-            password_confirmation: "newpassword"
+            password_confirmation: "newpassword",
+            username: "blah"
           )
 
           expect(new_user.save).to be_falsey
@@ -99,7 +106,8 @@ RSpec.describe User do
       context "is missing" do
         user = User.new(
           name: "test",
-          email: "some@email.com"
+          email: "some@email.com",
+          username: "test"
         )
 
         it "does not save" do
@@ -114,7 +122,8 @@ RSpec.describe User do
           name: "test",
           email: "some@email.com",
           password: "test",
-          password_confirmation: "test"
+          password_confirmation: "test",
+          username: "test"
         )
 
         it "does not save" do
@@ -129,7 +138,8 @@ RSpec.describe User do
           name: "test",
           email: "some@email.com",
           password: "testtesttest",
-          password_confirmation: "blahblahblah"
+          password_confirmation: "blahblahblah",
+          username: "test"
         )
 
         it "does not save" do
@@ -138,6 +148,65 @@ RSpec.describe User do
           expect(user.errors.messages[:password_confirmation].first).to eq("doesn't match Password")
         end
       end
+    end
+
+    context "username" do
+      context "is missing" do
+        user = User.new(
+          name: "test",
+          email: "a@b.c",
+          password: "testtesttest",
+          password_confirmation: "testtesttest"
+        )
+
+        it "does not save" do
+          expect(user.save).to be_falsey
+          expect(user.errors.count).to be(3)
+          expect(user.errors.messages[:username]).to include("can't be blank", "is invalid", "has already been taken")
+        end
+      end
+
+      context "is invalid" do
+        user = User.new(
+          name: "test",
+          email: "a@b.c",
+          password: "testtesttest",
+          password_confirmation: "testtesttest",
+          username: "!"
+        )
+
+        it "does not save" do
+          expect(user.save).to be_falsey
+          expect(user.errors.count).to be(1)
+          expect(user.errors.messages[:username].first).to eq("is invalid")
+        end
+      end
+
+      # $10 to whomever can show me why this test doesn't work
+      # context "is not unique (case insensitive)" do
+      #   a_user = User.new(
+      #     name: "test",
+      #     email: "valid@email.com",
+      #     password: "testtesttest",
+      #     password_confirmation: "testtesttest",
+      #     username: "test"
+      #   )
+      #   a_user.save
+      #
+      #   it "does not save" do
+      #     b_user = User.new(
+      #       name: "someone",
+      #       email: "another@email.com",
+      #       password: "testtesttest",
+      #       password_confirmation: "testtesttest",
+      #       username: "test"
+      #     )
+      #
+      #     expect(b_user.save).to be_falsey
+      #     expect(b_user.errors.count).to be(1)
+      #     expect(b_user.errors.messages[:username].first).to eq("has already been taken")
+      #   end
+      # end
     end
   end
 end

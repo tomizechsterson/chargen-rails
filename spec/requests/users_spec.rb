@@ -6,13 +6,15 @@ RSpec.describe "Users" do
     name: "test",
     email: "a@b.c",
     password: "testtesttest",
-    password_confirmation: "testtesttest"
+    password_confirmation: "testtesttest",
+    username: "test"
   }}
   let(:invalid_attributes) {{
     name: "",
     email: "a",
     password: "testtest",
-    password_confirmation: "blahblah"
+    password_confirmation: "blahblah",
+    username: "!"
   }}
 
   describe "GET /index" do
@@ -50,7 +52,7 @@ RSpec.describe "Users" do
     context "with valid parameters" do
       it "creates a new user" do
         expect {
-          post users_url, params: {user: valid_attributes }
+          post users_url, params: { user: valid_attributes }
         }.to change(User, :count).by 1
       end
 
