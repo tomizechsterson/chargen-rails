@@ -10,8 +10,11 @@
                 class: "button delete" %>
   </div>
 
-  <div>
+  <div class="actions">
     <%= link_to "Edit Account", edit_user_path(@user), class: "button edit" %>
+    <%= link_to "Delete Account", @user, method: :delete,
+                data: { confirm: "Permanently delete your account?" },
+                class: "button delete" %>
   </div>
 
   <%= link_to "Characters", characters_path %>
