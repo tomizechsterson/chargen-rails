@@ -9,7 +9,7 @@ RSpec.describe User do
           email: "a@b.c",
           password: "0123456789",
           password_confirmation: "0123456789",
-          username: "test"
+          username: "A"
         )
 
         expect(user.save).to be_truthy
@@ -21,11 +21,11 @@ RSpec.describe User do
         user = User.new
 
         expect(user.save).to be_falsey
-        expect(user.errors.count).to be(6)
+        expect(user.errors.count).to be(5)
         expect(user.errors.messages[:name].first).to eq("can't be blank")
         expect(user.errors.messages[:email].first).to eq("is invalid")
         expect(user.errors.messages[:password].first).to eq("can't be blank")
-        expect(user.errors.messages[:username]).to include("can't be blank", "is invalid", "has already been taken")
+        expect(user.errors.messages[:username]).to include("can't be blank", "is invalid")
       end
     end
 
@@ -35,7 +35,7 @@ RSpec.describe User do
           email: "test@test.com",
           password: "testtesttest",
           password_confirmation: "testtesttest",
-          username: "test"
+          username: "missingName"
         )
 
         expect(user.save).to be_falsey
@@ -50,7 +50,7 @@ RSpec.describe User do
           name: "test",
           password: "testtesttest",
           password_confirmation: "testtesttest",
-          username: "test"
+          username: "missingEmail"
         )
 
         it "does not save" do
@@ -66,7 +66,7 @@ RSpec.describe User do
           email: "blah",
           password: "testtesttest",
           password_confirmation: "testtesttest",
-          username: "test"
+          username: "invalidEmail"
         )
 
         it "does not save" do
@@ -82,7 +82,7 @@ RSpec.describe User do
           email: "valid@email.com",
           password: "testtesttest",
           password_confirmation: "testtesttest",
-          username: "test"
+          username: "emailTaken"
         )
         some_user.save
 
@@ -92,7 +92,7 @@ RSpec.describe User do
             email: "VALID@EMAIL.COM",
             password: "newpassword",
             password_confirmation: "newpassword",
-            username: "blah"
+            username: "emailNotUnique"
           )
 
           expect(new_user.save).to be_falsey
@@ -107,7 +107,7 @@ RSpec.describe User do
         user = User.new(
           name: "test",
           email: "some@email.com",
-          username: "test"
+          username: "passwordMissing"
         )
 
         it "does not save" do
@@ -123,7 +123,7 @@ RSpec.describe User do
           email: "some@email.com",
           password: "test",
           password_confirmation: "test",
-          username: "test"
+          username: "passwordShort"
         )
 
         it "does not save" do
@@ -139,7 +139,7 @@ RSpec.describe User do
           email: "some@email.com",
           password: "testtesttest",
           password_confirmation: "blahblahblah",
-          username: "test"
+          username: "passwordConfirmationWrong"
         )
 
         it "does not save" do
@@ -161,8 +161,8 @@ RSpec.describe User do
 
         it "does not save" do
           expect(user.save).to be_falsey
-          expect(user.errors.count).to be(3)
-          expect(user.errors.messages[:username]).to include("can't be blank", "is invalid", "has already been taken")
+          expect(user.errors.count).to be(2)
+          expect(user.errors.messages[:username]).to include("can't be blank", "is invalid")
         end
       end
 

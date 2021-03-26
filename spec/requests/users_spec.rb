@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "Users" do
 
   let(:valid_attributes) {{
-    name: "test",
+    name: "validName",
     email: "a@b.c",
     password: "testtesttest",
     password_confirmation: "testtesttest",
-    username: "test"
+    username: "validUsername"
   }}
   let(:invalid_attributes) {{
     name: "",
