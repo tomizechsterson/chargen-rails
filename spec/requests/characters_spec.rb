@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "/characters" do
 
-  # As you add validations to Character, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) { { name: "test" } }
   let(:invalid_attributes) { { name: nil } }
 
