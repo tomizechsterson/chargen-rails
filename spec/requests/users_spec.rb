@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users" do
+RSpec.describe "/users" do
 
   let(:valid_attributes) {{
     name: "validName",
