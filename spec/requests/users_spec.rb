@@ -20,7 +20,10 @@ RSpec.describe "/users" do
   describe "GET /index" do
     it "renders a successful response" do
       User.create! valid_attributes
+      sign_in
+
       get users_url
+
       expect(response).to be_successful
     end
   end
@@ -28,7 +31,10 @@ RSpec.describe "/users" do
   describe "GET /show" do
     it "renders a successful response" do
       user = User.create! valid_attributes
+      sign_in
+
       get user_url(user)
+
       expect(response).to be_successful
     end
   end
@@ -43,7 +49,10 @@ RSpec.describe "/users" do
   describe "GET /edit" do
     it "renders a successful response" do
       user = User.create! valid_attributes
+      sign_in
+
       get edit_user_url(user)
+
       expect(response).to be_successful
     end
   end
@@ -95,6 +104,7 @@ RSpec.describe "/users" do
 
       it "updates the requested user" do
         user = User.create! valid_attributes
+        sign_in
 
         patch user_url(user), params: { user: new_attributes }
         user.reload
@@ -104,6 +114,7 @@ RSpec.describe "/users" do
 
       it "redirects to the user" do
         user = User.create! valid_attributes
+        sign_in
         patch user_url(user), params: { user: new_attributes }
 
         user.reload
@@ -115,6 +126,7 @@ RSpec.describe "/users" do
     context "with invalid parameters" do
       before do
         user = User.create! valid_attributes
+        sign_in
         patch user_url(user), params: { user: invalid_attributes }
       end
 
@@ -131,6 +143,7 @@ RSpec.describe "/users" do
   describe "DELETE /destroy" do
     it "destroys the requested user" do
       user = User.create! valid_attributes
+      sign_in
 
       expect {
         delete user_url(user)
@@ -139,10 +152,19 @@ RSpec.describe "/users" do
 
     it "redirects to the users list" do
       user = User.create! valid_attributes
+      sign_in
 
       delete user_url(user)
 
       expect(response).to redirect_to(characters_url)
     end
+  end
+
+  private
+
+  def sign_in
+    post session_url, params: {
+      email_or_username: valid_attributes[:email], password: valid_attributes[:password]
+    }
   end
 end
