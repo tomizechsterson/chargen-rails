@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "/characters" do
 
-  let(:valid_attributes) { { name: "test" } }
+  let(:valid_attributes) { { name: "test", user_id: 1 } }
   let(:invalid_attributes) { { name: nil } }
 
   describe "GET /index" do
