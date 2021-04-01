@@ -5,10 +5,15 @@ RSpec.describe "/characters" do
   let(:valid_attributes) { { name: "test character", user_id: @user_a.id } }
   let(:invalid_attributes) { { name: nil } }
 
-  before do
+  before(:context) do
     @user_a = User.create!(name: "test a", email: "a@b.c", username: "testa", password: "testtesttest", password_confirmation: "testtesttest")
     @user_b = User.create!(name: "test b", email: "b@b.c", username: "testb", password: "testtesttest", password_confirmation: "testtesttest")
     @admin_user = User.create!(name: "admin", email: "admin@b.c", username: "admin", password: "blahblahblah", password_confirmation: "blahblahblah", admin: true)
+  end
+  after(:context) do
+    @user_a.destroy
+    @user_b.destroy
+    @admin_user.destroy
   end
 
   describe "GET /index" do
