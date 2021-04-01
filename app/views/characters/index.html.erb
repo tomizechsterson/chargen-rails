@@ -3,15 +3,26 @@
 <h1>Characters</h1>
 
 <div class="card-container">
-  <% @characters.each do |character| %>
-    <div class="card-body">
-      <p class="card-image"><img src="https://picsum.photos/200"></p>
-      <%= character.name %>
-      <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
-      <%= link_to 'Show', character, :class => "button" %>
-      <%= link_to 'Edit', edit_character_path(character), :class => "button" %>
-      <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
-    </div>
+  <% if @characters.any? %>
+    <% @characters.each do |character| %>
+      <div class="card-body">
+        <p class="card-image"><img src="https://picsum.photos/200"></p>
+        <%= character.name %>
+        <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
+        <%= link_to 'Show', character, :class => "button" %>
+        <%= link_to 'Edit', edit_character_path(character), :class => "button" %>
+        <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
+      </div>
+    <% end %>
+  <% elsif current_user %>
+    <p>
+      It appears you haven't made any characters yet.
+      You can create your first character by clicking on New Character
+    </p>
+  <% else %>
+    <p>
+      It appears you're not signed in. Please sign in to create characters
+    </p>
   <% end %>
 </div>
 <br>
