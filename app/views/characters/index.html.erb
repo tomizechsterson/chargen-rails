@@ -8,6 +8,11 @@
       <div class="card-body">
         <p class="card-image"><img src="https://picsum.photos/200"></p>
         <%= character.name %>
+        <% if current_user_admin? %>
+          <p>
+            User: <%= character.user.name %>
+          </p>
+        <% end %>
         <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
         <%= link_to 'Show', character, :class => "button" %>
         <%= link_to 'Edit', edit_character_path(character), :class => "button" %>
