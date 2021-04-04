@@ -1,13 +1,21 @@
 class CharactersController < ApplicationController
+  before_action :require_signin, only: %i[ new edit create update destroy]
   before_action :set_character, only: %i[ show edit update destroy ]
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.all
+    if current_user_admin?
+      @characters = Character.all
+    elsif current_user
+      @characters = Character.where(user_id: current_user.id)
+    else
+      @characters = []
+    end
   end
 
   # GET /characters/1 or /characters/1.json
   def show
+    not_found unless user_can_access_character
   end
 
   # GET /characters/new
@@ -17,11 +25,13 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
+    not_found unless user_can_access_character
   end
 
   # POST /characters or /characters.json
   def create
     @character = Character.new(character_params)
+    @character.user = current_user
 
     respond_to do |format|
       if @character.save
@@ -57,13 +67,17 @@ class CharactersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_character
-      @character = Character.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_character
+    @character = Character.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def character_params
-      params.require(:character).permit(:name)
-    end
+  def user_can_access_character
+    current_user_admin? || current_user&.id == @character.user_id
+  end
+
+  # Only allow a list of trusted parameters through.
+  def character_params
+    params.require(:character).permit(:name, :user_id)
+  end
 end

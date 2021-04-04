@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe CharactersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# RSpec.describe CharactersHelper do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
