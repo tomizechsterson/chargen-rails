@@ -10,44 +10,37 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree 
  *= require_self
  */
 
 body {
-	background-color: #CCCCCC;
+	font-size: 14px;
 	text-align: center;
-	font-size: 12px;
 }
 
-h1 {
-
-}
-div {
-	border: 0px solid red;
-}
-
-p {
-	border: 0px solid pink;
+h4 {
+	font-style: italic;
 }
 
 a {
-	color: #444444;
+	color: #000055;
 }
 
 a:visited {
-	color: #444444;
+	color: #000055;
 }
 
 a:hover {
-	color: #444444;
-	background-color: #888899;
+	color: #000055;
+	background-color: #EEEEEE;
+	box-shadow: 0 8px 16px 0 rgba(0,0,75,0.2);
 }
 
 .button {
 	text-decoration: none;
 	font-size: 14px;
-	background-color: #BBBBCC;
+	background-color: #DDDDDD;
 	padding: 2px 6px 2px 6px;
 	border-radius: 5px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -58,32 +51,40 @@ a:hover {
 	flex-direction: row;
 	justify-content: space-around;
 	flex-flow: wrap;
-	border: 0px solid blue;
 }
 
 .card-image {
 	margin: 0px;
-	border-radius: 8px;
-	width: 100%;
+	border-radius: 8px 8px 0px 0px;
 }
 
 .card-body {
 	border: 0px solid black;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	background-color: #9999AA;
+	background-color: #abcdef;
 	border-radius: 8px;
 	margin: 10px;
 	padding: 0px 0px 10px 0px;
 }
 
 .card-info {
-	padding: 10px;
+	padding: 0px;
 }
 
 .card-body:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,75,0.2);
 }
 
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #000;
+		color: #EFEFEF;
+	}
+
+  	.card-body {
+		background-color: #234567;
+	}
+}
 
 
 
