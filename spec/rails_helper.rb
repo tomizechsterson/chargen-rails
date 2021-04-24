@@ -55,5 +55,6 @@ RSpec.configure do |config|
 
   config.before(:all, type: :system) do
       driven_by :selenium, using: :headless_firefox
+      Capybara.default_driver = :selenium # capybara needs to be told twice which driver to use... Sneaky, sneaky...
     end
 end
