@@ -1,21 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Character do
-  describe "#save" do
-    context "with a valid character" do
-      it "successfully saves character" do
-        c = Character.new(name: "test", user_id: 1)
+  context "with all required attributes" do
+    it "is valid" do
+      test_user = User.new(
+        name: "testuser",
+        email: "test@test.com",
+        password: "blahblahblah",
+        password_confirmation: "blahblahblah",
+        username: "tester"
+      )
+      c = Character.new(name: "test", user: test_user)
 
-        expect(c.save).to be_truthy
-      end
+      expect(c).to be_valid
     end
+  end
 
-    context "with no attributes defined" do
-      it "does not save" do
-        c = Character.new
+  context "with no attributes defined" do
+    it "is not valid" do
+      c = Character.new
 
-        expect(c.save).to be_falsey
-      end
+      expect(c).to_not be_valid
     end
   end
 end
