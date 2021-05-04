@@ -1,7 +1,8 @@
 <section>
-  <h1><%= @user.name %></h1>
-  <h2><%= mail_to(@user.email) %></h2>
-  <h2><%= @user.username %></h2>
+  <h1>User Account Information</h1>
+  <p><h4>Name: </h4><%= @user.name %></p>
+  <p><h4>Email: </h4><%= mail_to(@user.email) %></p>
+  <p><h4>User Name: </h4><%= @user.username %></p>
 
   <% if current_user?(@user) %>
     <div class="actions">
@@ -12,5 +13,5 @@
     </div>
   <% end %>
 
-  <%= link_to "Characters", characters_path %>
+  <%= link_to "Characters", characters_path, class: "button" %>
 </section>
