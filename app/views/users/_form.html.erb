@@ -11,27 +11,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-
-    <%= f.label :username %>
-    <%= f.text_field :username, placeholder: "Alphanumeric characters only" %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <% if user.new_record? %>
-      <%= f.submit "Create Account" %>
+    <% if current_user %>
+      <h1>Edit Account</h1>
     <% else %>
-      <%= f.submit "Update Account" %>
+      <h1>Sign Up</h1>
     <% end %>
+
+    <%= f.label :name, class: "formlabel" %>
+    <%= f.text_field :name, autofocus: true, class: "formfield" %>
+
+    <%= f.label :email, class: "formlabel"  %>
+    <%= f.email_field :email, class: "formfield" %>
+
+    <%= f.label :username, class: "formlabel"  %>
+    <%= f.text_field :username, placeholder: "Alphanumeric characters only", class: "formfield" %>
+
+    <%= f.label :password, class: "formlabel"  %>
+    <%= f.password_field :password, class: "formfield" %>
+
+    <%= f.label :password_confirmation, "Confirm Password", class: "formlabel"  %>
+    <%= f.password_field :password_confirmation, class: "formfield" %>
+
+    <div class="actions">
+      <% if user.new_record? %>
+        <%= f.submit "Create Account", class: "button" %>
+      <% else %>
+        <%= f.submit "Update Account", class: "button" %>
+      <% end %>
+      </div>
   </div>
+
+
 <% end %>
