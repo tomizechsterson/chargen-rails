@@ -1,5 +1,7 @@
 # chargen-rails
 
+[![Main Build](https://github.com/tomizechsterson/chargen-rails/actions/workflows/ruby.yml/badge.svg?branch=master)](https://github.com/tomizechsterson/chargen-rails/actions/workflows/ruby.yml)
+
 This project will serve as a toy project for practicing Ruby on Rails development. It will implement at least
 a subset of the rules for creating a character in a tabletop RPG, such as AD&D 2nd edition, etc. It likely won't
 implement the full process, since ultimately, this is a toy project that's being used to practice a few things:
