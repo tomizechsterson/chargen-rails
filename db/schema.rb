@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_180703) do
+ActiveRecord::Schema.define(version: 2021_05_19_200800) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name", limit: 32, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "str", default: 0
+    t.integer "dex", default: 0
+    t.integer "con", default: 0
+    t.integer "int", default: 0
+    t.integer "wis", default: 0
+    t.integer "chr", default: 0
   end
 
   create_table "users", force: :cascade do |t|
