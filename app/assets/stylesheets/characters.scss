@@ -11,20 +11,23 @@
 
 .card-image {
 	margin: 0px;
+	padding: 0px;
 	border-radius: 8px 8px 0px 0px;
 }
 
 .card-body {
 	border: 0px solid black;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	background-color: #abcdef;
+	background-color: #a4a8bf;
 	border-radius: 8px;
 	margin: 10px;
 	padding: 0px 0px 10px 0px;
+	max-width: 200px;
 }
 
 .card-info {
 	padding: 0px;
+	font-size: 14px;
 }
 
 .card-body:hover {

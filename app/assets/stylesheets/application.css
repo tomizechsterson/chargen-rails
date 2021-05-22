@@ -14,52 +14,96 @@
  *= require_self
  */
 
+ html {
+	 height: 100%;
+ }
+
 body {
-	font-size: 14px;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 16px;
 	text-align: center;
-	background-color: #EFEFEF;
+	background-color: #F2F2F2;
+	background-image: linear-gradient( #FFFFFF, #F2F2F2, #A4A8BF);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #333740;
+	height: 100%;
 }
 
 h1 {
-	color: #234567;
+	color: #333740;
 }
 
+p {
+	font-family: 'Times New Roman', Times, serif
+}
 h4 {
 	font-style: italic;
 }
 
 a {
-	color: #000055;
+	color: #333470;
 }
 
 a:visited {
-	color: #000055;
+	color: #333470;
 }
 
 a:hover {
-	color: #000055;
-	background-color: #EEEEEE;
+	color: #333470;
+	background-color: #75aabf;
 	box-shadow: 0 8px 16px 0 rgba(0,0,75,0.2);
 }
 
 .button {
 	text-decoration: none;
+	font-family: 'Times New Roman', Times, serif;
 	font-size: 14px;
-	background-color: #DDDDDD;
-	padding: 2px 6px 2px 6px;
-	border-radius: 5px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	margin: 10px;
+	background-color: #f2f2f2;
+  	padding: 5px;
+	margin: 5px;
+	min-width: 100px;
+  	border: 1px;
+	border-radius: 2px;
+}
+
+.button:hover {
+  background-color: #75aabf;
 }
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #000;
-		color: #EFEFEF;
+		background-color: #333470;
+		color: #F2F2F2;
+		background-image: linear-gradient( #a4a8bf, #5d6473, #333740);
+	}
+
+	h1 {
+		color: #F2F2F2;
+	}
+
+	.formlabel {
+		color: #f2f2f2;
+	}
+
+	.displayinfo {
+		color: #f2f2f2;
 	}
 
   	.card-body {
-		background-color: #234567;
+		background-color: #5D6473;
+	}
+
+	.button {
+		background-color: #A4A8BF;
+	}
+
+	.dropdown-content {
+		color: #5d6473;
+	}
+
+	.field {
+		background-color: #5d6473;
 	}
 }
 
