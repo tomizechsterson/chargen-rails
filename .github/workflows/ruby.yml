@@ -28,4 +28,4 @@ jobs:
           ${{ runner.os }}-modules-
     - run: yarn
     - name: Run tests
-      run: bundle exec rake
+      run: bin/rails db:migrate RAILS_ENV=test && bundle exec rake
