@@ -56,7 +56,7 @@ RSpec.describe "Character Management" do
       expect(page).to have_content "capybara character"
 
       accept_confirm do
-        click_link "Destroy"
+        click_link "Delete"
       end
 
       expect(page).to_not have_content "capybara character"

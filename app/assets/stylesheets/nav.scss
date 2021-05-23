@@ -6,7 +6,7 @@ header {
       margin-bottom: 25px;
       padding: 0;
       overflow: hidden;
-      background-color: #8c708a;
+      background-color: #333740;
 
     }
 
@@ -16,7 +16,7 @@ header {
     
     li a, .dropbtn {
       display: inline-block;
-      color: white;
+      color: #F2F2F2;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
@@ -24,45 +24,45 @@ header {
 
     .navitem {
       display: inline-block;
-      color: white;
+      color: #F2F2F2;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
     }
     
     li .dropbtn {
-      color: #234567;
+      color: #333740;
     }
     
     li a:hover, .dropdown:hover .dropbtn {
-      background-color: #234567;
-      color: white;
+      background-color: #75aabf;
+      color: #F2F2F2;
     }
     
     li.dropdown {
       display: inline-block;
       float: right;
-      background-color: #abcdef;
+      background-color: #f2f2f2;
     }
     
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #f9f9f9;
+      background-color: #f2f2f2;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
     }
     
     .dropdown-content a {
-      color: #234567;
+      color: #333740;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
       text-align: left;
     }
     
-    .dropdown-content a:hover {background-color: #234567;}
+    .dropdown-content a:hover {background-color: #333740;}
     
     .dropdown:hover .dropdown-content {
       display: block;

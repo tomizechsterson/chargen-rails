@@ -14,9 +14,9 @@
           </p>
         <% end %>
         <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
-        <%= link_to 'Show', character, :class => "button" %>
-        <%= link_to 'Edit', edit_character_path(character), :class => "button" %>
-        <%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %>
+        <%= link_to '<button type="button" class="button">Show</button>'.html_safe, character, :method => "get" %>
+        <%= link_to '<button type="button" class="button">Edit</button>'.html_safe, edit_character_path(character), :method => "get" %>
+        <%= link_to '<button type="button" class="button">Delete</button>'.html_safe, character, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
   <% elsif current_user %>
