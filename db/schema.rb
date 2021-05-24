@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_200800) do
+ActiveRecord::Schema.define(version: 2021_05_19_203500) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name", limit: 32, null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_200800) do
     t.integer "int", default: 0
     t.integer "wis", default: 0
     t.integer "chr", default: 0
+    t.integer "creation_step", default: 0
   end
 
   create_table "users", force: :cascade do |t|
