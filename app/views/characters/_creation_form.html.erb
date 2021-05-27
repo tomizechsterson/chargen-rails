@@ -1,0 +1,22 @@
+<%= form_with(model: character) do |form| %>
+  <div class="field">
+    Step: <%= character.creation_step %>
+    <%= form.label :str, class: "formlabel" %>
+    <%= character.str %>
+
+    <%= form.label :dex, class: "formlabel" %>
+    <%= character.dex %>
+
+    <%= form.label :con, class: "formlabel" %>
+    <%= character.con %>
+
+    <%= form.label :int, class: "formlabel" %>
+    <%= character.int %>
+
+    <%= form.label :wis, class: "formlabel" %>
+    <%= character.wis %>
+
+    <%= form.label :chr, class: "formlabel" %>
+    <%= character.chr %>
+  </div>
+<% end %>
