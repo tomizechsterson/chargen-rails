@@ -35,14 +35,17 @@ h1 {
 }
 
 p {
-	font-family: 'Times New Roman', Times, serif
+	font-family: 'Times New Roman', Times, serif;
 }
+
 h4 {
 	font-style: italic;
 }
 
 a {
 	color: #333470;
+	background-color: #A4A8BF;
+	padding: 10px;
 }
 
 a:visited {
@@ -50,26 +53,9 @@ a:visited {
 }
 
 a:hover {
-	color: #333470;
 	background-color: #75aabf;
-	box-shadow: 0 8px 16px 0 rgba(0,0,75,0.2);
 }
 
-.button {
-	text-decoration: none;
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 14px;
-	background-color: #f2f2f2;
-  	padding: 5px;
-	margin: 5px;
-	min-width: 100px;
-  	border: 1px;
-	border-radius: 2px;
-}
-
-.button:hover {
-  background-color: #75aabf;
-}
 
 @media (prefers-color-scheme: dark) {
 	body {
@@ -82,6 +68,11 @@ a:hover {
 		color: #F2F2F2;
 	}
 
+	a {
+		background-color:  #5d6473;
+		color: #f2f2f2;
+	}
+
 	.formlabel {
 		color: #f2f2f2;
 	}
@@ -90,12 +81,26 @@ a:hover {
 		color: #f2f2f2;
 	}
 
+	li a, .dropbtn {
+		background-color: #5d6473;
+	}
+
   	.card-body {
 		background-color: #5D6473;
 	}
 
-	.button {
-		background-color: #A4A8BF;
+	.card-button {
+		background-color: #333740;
+	}
+
+	.specialbutton {
+		background-color: #333740;
+		color: #f2f2f2;
+	}
+	
+	.formbutton {
+		background-color: #333740;
+		color: #f2f2f2 !important; 
 	}
 
 	.dropdown-content {

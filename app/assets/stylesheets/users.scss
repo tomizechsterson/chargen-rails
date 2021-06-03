@@ -37,6 +37,33 @@
     font-size: 16px;
 }
 
+.formbutton {
+    background-color: #f2f2f2;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.overridea {
+    background-color: #a4a8bf;
+}
+
+.overridea:hover {
+    background-color: #a4a8bf;
+}
+
+.specialbutton {
+	color: #333470;
+	background-color: #f2f2f2;
+	padding: 10px;
+	text-decoration: none;
+    border: 0px;
+    margin: 10px;
+}
+
+.specialbutton:hover {
+    background-color: #75aabf;
+}
+
 .specialform {
     margin: auto;
     display: flex;

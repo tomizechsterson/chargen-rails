@@ -2,7 +2,7 @@
   <h1>Sign In</h1>
 
   <p class="displayinfo">
-    No account yet? Feel free to <%= link_to "sign up", signup_path %>
+    No account yet? Feel free to <%= link_to "sign up", signup_path, :class => "overridea" %>
   </p>
 
   <%= form_with(url: session_path, local: true, class: "specialform") do |f| %>
@@ -12,6 +12,6 @@
     <%= f.label :password, class: "formlabel" %>
     <%= f.password_field :password, required: true, class: "formfield" %>
 
-    <%= f.submit "Sign In", class: "button" %>
+    <%= f.submit "Sign In", class: "specialbutton" %>
   <% end %>
 </div>

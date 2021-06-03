@@ -14,9 +14,11 @@
           </p>
         <% end %>
         <p class="card-info">more information in this tag<br>and then theres more<br>perhaps a bit more</p>
-        <%= link_to '<button type="button" class="button">Show</button>'.html_safe, character, :method => "get" %>
-        <%= link_to '<button type="button" class="button">Edit</button>'.html_safe, edit_character_path(character), :method => "get" %>
-        <%= link_to '<button type="button" class="button">Delete</button>'.html_safe, character, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="button-container">
+          <%= link_to 'Show', character, :method => "get", :class => "card-button" %>
+          <%= link_to 'Edit', edit_character_path(character), :method => "get", :class => "card-button" %>
+          <%= link_to 'Delete', character, method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-button" %>
+        </div>
       </div>
     <% end %>
   <% elsif current_user %>
@@ -30,6 +32,3 @@
     </p>
   <% end %>
 </div>
-<br>
-
-<%= link_to 'New Character', new_character_path, :class => "button" %>

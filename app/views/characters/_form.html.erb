@@ -14,8 +14,6 @@
   <div class="field">
     <%= form.label :name, class: "formlabel" %>
     <%= form.text_field :name, class: "formfield" %>
-    <div class="button">
-      <%= form.submit %>
-    </div>
+    <%= form.submit :class => "specialbutton" %>
   </div>
 <% end %>
