@@ -1,24 +1,24 @@
-<header class = "navbar">
+<header class = "navBar">
   <nav>
     <ul>
-      <li class="navitem">CharGen</li>
+      <li class="navItem">CharGen</li>
       <% if current_user %>
-        <li><%= link_to 'New Character', new_character_path, class: "navitem" %></li>
-        <li><%= link_to "Existing Characters", characters_path, class: "navitem"%></li>
+        <li><%= link_to 'New Character', new_character_path, class: "navItem" %></li>
+        <li><%= link_to "Existing Characters", characters_path, class: "navItem"%></li>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">User Profile</a>
             <div class="dropdown-content">
-              <%= link_to current_user.name, current_user, class: "navitem" %>
-              <%= link_to "Account Settings", edit_user_path(current_user), class: "navitem" %>
-              <%= link_to "Sign Out", session_path, method: :delete, class: "navitem" %>
+              <%= link_to current_user.name, current_user, class: "navItem" %>
+              <%= link_to "Account Settings", edit_user_path(current_user), class: "navItem" %>
+              <%= link_to "Sign Out", session_path, method: :delete, class: "navItem" %>
             </div>
         </li>
       <% else %>
         <li>
-          <%= link_to "Sign In", signin_path, class: "navitem" %>
+          <%= link_to "Sign In", signin_path, class: "navItem" %>
         </li>
         <li>
-          <%= link_to "Sign Up", signup_path, class: "navitem" %>
+          <%= link_to "Sign Up", signup_path, class: "navItem" %>
         </li>
       <% end %>
     </div>

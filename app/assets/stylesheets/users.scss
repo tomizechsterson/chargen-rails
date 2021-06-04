@@ -14,7 +14,7 @@
 	border-radius: 8px;
 }
 
-.formlabel {
+.formLabel {
     color: #333740;
     margin-top: 10px;
     text-align: left;
@@ -22,13 +22,13 @@
     font-size: 16px;
 }
 
-.formfield {
+.formField {
     border-radius: 5px;
     width: 75%;
     font-size: 16px;
 }
 
-.displayinfo {
+.displayInfo {
     color: #333740;
     padding: 10px;
     margin-bottom: 10px;
@@ -37,21 +37,21 @@
     font-size: 16px;
 }
 
-.formbutton {
+.formButton {
     background-color: #f2f2f2;
     margin: 10px;
     text-decoration: none;
 }
 
-.overridea {
+.overrideLinkStyle {
     background-color: #a4a8bf;
 }
 
-.overridea:hover {
+.overrideLinkStyle:hover {
     background-color: #a4a8bf;
 }
 
-.specialbutton {
+.cta_button {
 	color: #333470;
 	background-color: #f2f2f2;
 	padding: 10px;
@@ -60,11 +60,11 @@
     margin: 10px;
 }
 
-.specialbutton:hover {
+.cta_button:hover {
     background-color: #75aabf;
 }
 
-.specialform {
+.specialForm {
     margin: auto;
     display: flex;
     flex-direction: column;

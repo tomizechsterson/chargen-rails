@@ -70,7 +70,7 @@ a:hover {
 
 	a {
 		background-color:  #5d6473;
-		color: #f2f2f2;
+		color: #f2f2f2 !important;
 	}
 
 	.formlabel {
@@ -82,7 +82,11 @@ a:hover {
 	}
 
 	li a, .dropbtn {
-		background-color: #5d6473;
+		background-color: #5d6473 !important;
+	}
+
+	li a:hover {
+		background-color: #75aabf !important;
 	}
 
   	.card-body {
@@ -93,12 +97,12 @@ a:hover {
 		background-color: #333740;
 	}
 
-	.specialbutton {
+	.cta_button {
 		background-color: #333740;
 		color: #f2f2f2;
 	}
 	
-	.formbutton {
+	.formButton {
 		background-color: #333740;
 		color: #f2f2f2 !important; 
 	}
@@ -108,6 +112,10 @@ a:hover {
 	}
 
 	.field {
+		background-color: #5d6473;
+	}
+
+	.overrideLinkStyle {
 		background-color: #5d6473;
 	}
 }
