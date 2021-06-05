@@ -2,16 +2,16 @@
   <h1>Sign In</h1>
 
   <p class="displayinfo">
-    No account yet? Feel free to <%= link_to "sign up", signup_path %>
+    No account yet? Feel free to <%= link_to "sign up", signup_path, :class => "overrideLinkStyle" %>
   </p>
 
-  <%= form_with(url: session_path, local: true, class: "specialform") do |f| %>
-    <%= f.label :email_or_username, class: "formlabel" %>
-    <%= f.text_field :email_or_username, autofocus: true, required: true, class: "formfield" %>
+  <%= form_with(url: session_path, local: true, class: "specialForm") do |f| %>
+    <%= f.label :email_or_username, class: "formLabel" %>
+    <%= f.text_field :email_or_username, autofocus: true, required: true, class: "formField" %>
 
-    <%= f.label :password, class: "formlabel" %>
-    <%= f.password_field :password, required: true, class: "formfield" %>
+    <%= f.label :password, class: "formLabel" %>
+    <%= f.password_field :password, required: true, class: "formField" %>
 
-    <%= f.submit "Sign In", class: "button" %>
+    <%= f.submit "Sign In", class: "cta_button" %>
   <% end %>
 </div>

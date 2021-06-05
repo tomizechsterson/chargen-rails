@@ -12,10 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name, class: "formlabel" %>
-    <%= form.text_field :name, class: "formfield" %>
-    <div class="button">
-      <%= form.submit %>
-    </div>
+    <%= form.label :name, class: "formLabel" %>
+    <%= form.text_field :name, class: "formField" %>
+    <%= form.submit :class => "cta_button" %>
   </div>
 <% end %>
